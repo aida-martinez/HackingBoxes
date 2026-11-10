@@ -15,7 +15,7 @@ sudo nmap -p- -sS -sC -sV -T5 -n -Pn -vvv 172.17.0.2
 
 Resultado: Puerto 21/tcp abierto (vsftpd 2.3.4).
 
-![](0001.png)
+![](screenshots/0001.png)
 
 ## 3. Análisis de Vulnerabilidades
 Se ejecutó el motor de scripts de Nmap sobre el puerto 21:
@@ -25,7 +25,7 @@ sudo nmap -p21 --script=vuln 172.17.0.2
 
 Hallazgo: vsFTPd version 2.3.4 backdoor (CVE-2011-2523).
 
-![](0002.png)
+![](screenshots/0002.png)
 
 ## 4. Explotación
 
@@ -36,9 +36,9 @@ Intento 1: Metasploit Framework
 	- set LHOST 172.17.0.1
 - Resultado: No se estableció sesión interactiva.
 
-![](0003.png)
+![](screenshots/0003.png)
 
-![](0004.png)
+![](screenshots/0004.png)
 
 Intento 2: Explotación Manual (Python Script)
 - Repositorio: https://github.com/Maalfer/CVE-2011-2523-vsftpd-2.3.4-exploit
@@ -54,9 +54,9 @@ pip install nclib
 python3 exploit.py 172.17.0.2
 ```
 
-![](0005.png)
+![](screenshots/0005.png)
 
-![](0006.png)
+![](screenshots/0006.png)
 
 ## 5. Conclusiones
 - Los exploits manuales en Python suelen ser más estables que los de Metasploit en entornos Docker.
